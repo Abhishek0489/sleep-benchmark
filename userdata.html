@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Data</title>
+  <link href="./src/index.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Enter Your Details</h2>
+    <form id="user-data-form">
+      <input type="text" id="name" placeholder="Name" required class="input-field" />
+      <input type="number" id="age" placeholder="Age" required class="input-field" />
+      <input type="text" id="occupation" placeholder="Occupation" required class="input-field" />
+      <input type="number" id="sleep" placeholder="Sleep Duration (hours)" step="0.1" required class="input-field" />
+      <input type="number" id="steps" placeholder="Steps Walked" required class="input-field" />
+      <select id="gender" required class="input-field">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all mt-4">Submit</button>
+    </form>
+  </div>
+  <script type="module" src="/userdata.js"></script>
+</body>
+</html>
+
+<style>
+.input-field {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+}
+</style>

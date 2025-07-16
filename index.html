@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Health and Sleep Relation</title>
+  <link href="./src/index.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="p-3 flex bg-gradient-to-br from-blue-100 via-red-100 to-transparent justify-between items-center">  
+    <a href="#" id="brand-logo" class="flex items-center gap-2">
+      <img class="object-cover max-w-12 max-h-12" src="https://img.icons8.com/?size=100&id=24761&format=png&color=000000" alt="logo">
+      <span class="text-lg font-medium hover:text-blue-500 duration-500">health and sleep</span>
+    </a>
+    <div id="nav-menu" class="hidden lg:flex gap-12 ">
+      <a href="#" class="font-medium hover:text-blue-500 duration-500">Home</a>
+      <a href="#" class="font-medium hover:text-blue-500 duration-500">About</a>
+      <a href="login.html" class="font-medium hover:text-blue-500 duration-500">Login</a>
+    </div>
+
+    <button class="p-2 lg:hidden hover:bg-red-50" onclick="handleMenu()">
+      <i class="fa-solid fa-bars text-gray-700"></i>
+    </button>
+
+    <div id="nav-dial"  class="hidden fixed lg:hidden bg-white inset-0 p-3">
+      <div id="nav-bar" class="flex justify-between">
+        <a href="#" id="brand-logo" class="flex items-center gap-2">
+          <img class="object-cover max-w-12 max-h-12" src="https://img.icons8.com/?size=100&id=24761&format=png&color=000000" alt="logo">
+          <span class="text-lg font-medium hover:text-blue-500 duration-500">health and sleep</span>
+        </a>
+        <button class="p-2 lg:hidden hover:bg-red-50" onclick="handleMenu()">
+          <i class="fa-solid fa-xmark text-gray-700"></i>
+        </button>
+      </div>
+      <div class="mt-6">
+        <a href="#" class="w-fit rounded-lg font-medium m-3 p-3 block hover:bg-gray-200">Home</a>
+        <a href="#" class="w-fit rounded-lg font-medium m-3 p-3 block hover:bg-gray-200">About</a>
+        <a href="login.html" class="w-fit rounded-lg font-medium m-3 p-3 block hover:bg-gray-200">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <div id="hero" class="min-h-screen bg-gradient-to-br from-purple-100 via-red-100 to-transparent">
+      <div id="hero-container" class="max-w-4xl m-auto px-6 pb-20 flex flex-col sm:items-center sm:text-center"> 
+        <h1 class="text-4xl font-semibold leading-snug mt-50 sm:text-5xl">Health and Sleep Relation</h1>
+        <p class="text-lg mt-4">Discover the connection between your health and sleep patterns.</p>
+        <div id="button-container" class="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6">
+          <a href="login.html" class="px-8 py-3 font-semibold rounded-lg text-white bg-blue-800 shadow-sm hover:bg-blue-600 duration-500 text-center">Login</a>
+          <a href="signup.html" class="px-8 py-3 font-semibold rounded-lg border border-gray-300 shadow-sm hover:border-y-gray-900 duration-500 text-center">Signup</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 gap-7 md:grid-cols-12">
+          <div class="lg:col-span-4 col-span-12">
+            <a href="#" class="p-2 flex gap-3 items-center hover:text-red-500 duration-500">
+              <img class="object-cover max-w-12 max-h-12" src="https://img.icons8.com/?size=100&id=24761&format=png&color=ffffff" alt="logo">
+              <span class="text-2xl font-semibold">health and sleep</span>
+            </a>
+            <p class="text-sm mt-2 lg:max-w-sm">Your health and sleep are interconnected. Explore how they affect each other and learn to improve both.</p>
+          </div>
+
+          <div class="lg:col-span-2 md:col-span-4 col-span-12">
+            <p class="tracking-wide text-lg font-semibold mb-2">Company</p>
+            <ul class="list-none space-y-1">
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">About Us</a></li>
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Services</a></li>
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Pricing</a></li>
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-3 md:col-span-4 col-span-12">
+            <p class="tracking-wide text-lg font-semibold mb-2">Important links</p>
+            <ul class="list-none space-y-1">
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Terms of Service</a></li>
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-red-500 text-sm transition-all duration-500">Documentation</a></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-3 md:col-span-4 col-span-12">
+            <p class="tracking-wide text-lg font-semibold mb-2">Newsletter</p>
+            <p class="text-sm mb-4">Subscribe to our newsletter for the latest updates.</p>
+            <form class="flex lg:flex-row flex-col gap-2 w-full">
+              <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <button type="submit" class="w-full lg:w-auto px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-600 transition-all duration-500">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/supabaseClient.js"></script>
+  <!-- <script type="module" src="/auth.js"></script>   -->
+  <script src="./script.js"></script>
+</body>
+</html>

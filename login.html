@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link href="./src/index.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+    <form id="login-form">
+      <input id="login-email" type="email" placeholder="Email" required class="w-full mb-4 px-4 py-2 border rounded-lg" />
+      <input id="login-password" type="password" placeholder="Password" required class="w-full mb-6 px-4 py-2 border rounded-lg" />
+      <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-all">Login</button>
+    </form>
+    <p class="text-sm mt-4 text-center">Don't have an account? <a href="signup.html" class="text-blue-600">Sign up</a></p>
+  </div>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
