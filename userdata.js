@@ -30,3 +30,5 @@ form.addEventListener('submit', async (e) => {
     form.reset();
   }
 });
+
+console.log("hi");
