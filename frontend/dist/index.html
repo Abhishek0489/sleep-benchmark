@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health and Sleep Relation</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/index-6Expb-ol.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeSlide 0.8s ease-out both;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 via-blue-100 to-blue-200 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="p-4 flex items-center justify-between bg-white shadow-md sticky top-0 z-50">
+    <a href="#" class="flex items-center gap-3 text-xl font-semibold text-blue-800 hover:text-blue-600 transition duration-300">
+      <img src="https://img.icons8.com/?size=100&id=24761&format=png&color=000000" class="w-10 h-10" alt="logo" />
+      Health & Sleep
+    </a>
+    <div class="hidden lg:flex gap-10 text-sm font-medium">
+      <a href="#" class="hover:text-blue-600 transition">Home</a>
+      <a href="#" class="hover:text-blue-600 transition">About</a>
+      <a href="./index.html" class="hover:text-blue-600 transition">Login</a>
+    </div>
+    <button class="lg:hidden p-2" onclick="handleMenu()">
+      <i class="fa fa-bars text-xl"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="nav-dial" class="hidden lg:hidden fixed inset-0 bg-white z-40 p-4">
+    <div class="flex justify-between items-center mb-6">
+      <a href="#" class="flex items-center gap-3 text-xl font-semibold text-blue-800">
+        <img src="https://img.icons8.com/?size=100&id=24761&format=png&color=000000" class="w-10 h-10" alt="logo" />
+        Health & Sleep
+      </a>
+      <button onclick="handleMenu()"><i class="fa fa-times text-xl"></i></button>
+    </div>
+    <div class="space-y-4 text-lg">
+      <a href="#" class="block hover:text-blue-600">Home</a>
+      <a href="#" class="block hover:text-blue-600">About</a>
+      <a href="./login.html" class="block hover:text-blue-600">Login</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center fade-in">
+    <h1 class="text-5xl font-bold text-blue-800 mb-4 leading-tight">Because a Good Day Starts with a Good Night.</h1>
+    <p class="text-2xl text-gray-700 max-w-xl mb-10">Sleep Smarter, Live Better.<br>Your Journey to Better Sleep Starts Here.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="./login" class="px-8 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-600 transition">Login</a>
+      <a href="./signup" class="px-8 py-3 border border-blue-700 text-blue-700 rounded-lg hover:bg-blue-50 transition">Signup</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 mt-10">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <img src="https://img.icons8.com/?size=100&id=24761&format=png&color=ffffff" class="w-10 h-10" alt="logo" />
+          <span class="text-xl font-semibold">Health & Sleep</span>
+        </div>
+        <p class="text-sm text-gray-300">Empowering you with knowledge to improve your health through better sleep habits.</p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-lg mb-2">Company</h4>
+        <ul class="text-sm space-y-1 text-gray-300">
+          <li><a href="#" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Services</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-lg mb-2">Resources</h4>
+        <ul class="text-sm space-y-1 text-gray-300">
+          <li><a href="#" class="hover:text-white">Terms</a></li>
+          <li><a href="#" class="hover:text-white">Privacy</a></li>
+          <li><a href="#" class="hover:text-white">Help Center</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-lg mb-2">Newsletter</h4>
+        <p class="text-sm text-gray-300 mb-2">Get updates on sleep science and health tips.</p>
+        <form class="flex flex-col sm:flex-row gap-2">
+          <input type="email" placeholder="Your email" class="px-4 py-2 rounded-lg text-gray-800 focus:outline-none" />
+          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-8">© 2025 Health & Sleep. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleMenu() {
+      const menu = document.getElementById('nav-dial');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+
+</body>
+</html>
