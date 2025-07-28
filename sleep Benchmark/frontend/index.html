@@ -8,8 +8,13 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/index-6Expb-ol.css" />
+ 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+
   <style>
+
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -22,21 +27,39 @@
     .fade-in {
       animation: fadeSlide 0.8s ease-out both;
     }
+
+    #vanta-bg {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
-<body class="bg-gradient-to-r from-blue-100 via-blue-100 to-blue-200 text-gray-800">
+<body id="vanta-bg" class="text-gray-300">
 
   <!-- Navbar -->
-  <nav class="p-4 flex items-center justify-between bg-white shadow-md sticky top-0 z-50">
-    <a href="#" class="flex items-center gap-3 text-xl font-semibold text-blue-800 hover:text-blue-600 transition duration-300">
-      <img src="https://img.icons8.com/?size=100&id=24761&format=png&color=000000" class="w-10 h-10" alt="logo" />
-      Health & Sleep
-    </a>
-    <div class="hidden lg:flex gap-10 text-sm font-medium">
-      <a href="#" class="hover:text-blue-600 transition">Home</a>
-      <a href="#" class="hover:text-blue-600 transition">About</a>
-      <a href="./index.html" class="hover:text-blue-600 transition">Login</a>
+  <nav class="backdrop-blur-2xl bg-white/5 p-4 flex items-center justify-between shadow-sm sticky top-0 z-50">
+   <div class="group flex items-center gap-3 text-xl font-semibold text-gray-300 transition-colors duration-300 hover:cursor-pointer hover:text-black">
+      <!-- SVG Wrapper for Background -->
+      <div class="h-10 w-10 rounded bg-white/5 p-1 transition-colors duration-300 group-hover:text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 10 10">
+          <path d="M9.25 5.125c.55.075.55.075.75.275.119.822.024 1.161-.414 1.879-.955 1.134-1.796 1.947-3.317 2.112-.948.049-1.891.028-2.838-.037-.544.058-.675.249-1.031.646-.598.033-.912-.133-1.383-.492C.27 8.826.27 8.826 0 8.4c.015-.648.148-.936.555-1.441l.432-.409.431-.416c.599-.524.954-.56 1.733-.561l.568-.001.594.002.597-.002.567.001.522.001C6.4 5.6 6.4 5.6 6.6 5.8q.013.6 0 1.2c.549-.423 1.026-.83 1.488-1.35.512-.45.512-.45 1.162-.525M9 5.8a70 70 0 0 0-.75.9c-.6.623-.92.875-1.777 1.041-.718.009-1.369.005-2.073-.141L4 7l2-.4-.2-.6a86 86 0 0 0-1.337-.037l-.752-.021c-1.058.087-1.656.547-2.373 1.296L.8 7.8c.259.577.532.974 1 1.4l.6-.2a17 17 0 0 1 .921-.014c2.285.097 2.285.097 4.267-.823A16 16 0 0 0 8.2 7.4a43 43 0 0 1 .7-.662c.545-.464.545-.464.5-.938zM6.4.1l.547-.009c1.307.008 1.307.008 1.97.469.342.532.432.979.4 1.61C8.966 3.464 7.616 4.407 6.6 5.2c-.625-.282-1.099-.622-1.612-1.075l-.407-.355c-.921-.897-.921-.897-1.067-1.57l-.001-.4-.012-.4C3.865-.068 5.162.079 6.4.1M4.2 1.2c-.053.867.049 1.221.616 1.892A34 34 0 0 0 6.2 4.4c.917-.415 1.588-1.002 2.2-1.8.244-.733.244-.733.2-1.4C8.22.73 8.22.73 7.575.775L7 .8l-.4.8h-.4L5.8.8c-.899-.085-.899-.085-1.6.4"/>
+        </svg>
+
+      </div>
+
+      <!-- Text -->
+      <span class="transition-colors duration-300 group-hover:text-black">
+        Health & Sleep
+      </span>
+    </div>
+
+
+
+    <div class="hidden lg:flex p-4 gap-10 text-sm font-medium">
+      <a href="#" class="hover:text-black transition-all duration-500">Home</a>
+      <a href="#" class="hover:text-black transition-all duration-500">About</a>
+      <a href="./index.html" class="hover:text-black transition-all duration-500">Login</a>
     </div>
     <button class="lg:hidden p-2" onclick="handleMenu()">
       <i class="fa fa-bars text-xl"></i>
@@ -53,19 +76,20 @@
       <button onclick="handleMenu()"><i class="fa fa-times text-xl"></i></button>
     </div>
     <div class="space-y-4 text-lg">
-      <a href="#" class="block hover:text-blue-600">Home</a>
-      <a href="#" class="block hover:text-blue-600">About</a>
+      <a href="#" class="block hover:text-black">Home</a>
+      <a href="#" class="block hover:text-black">About</a>
       <a href="./login.html" class="block hover:text-blue-600">Login</a>
     </div>
   </div>
 
   <!-- Hero Section -->
   <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center fade-in">
-    <h1 class="text-5xl font-bold text-blue-800 mb-4 leading-tight">Because a Good Day Starts with a Good Night.</h1>
-    <p class="text-2xl text-gray-700 max-w-xl mb-10">Sleep Smarter, Live Better.<br>Your Journey to Better Sleep Starts Here.</p>
+
+    <h1 class="text-5xl font-bold text-black mb-4 leading-tight">Because a Good Day Starts with a Good Night.</h1>
+    <p class="text-2xl text-gray-600 max-w-xl mb-10">Sleep Smarter, Live Better.<br>Your Journey to Better Sleep Starts Here.</p>
     <div class="flex flex-col sm:flex-row gap-4">
-      <a href="./login" class="px-8 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-600 transition">Login</a>
-      <a href="./signup" class="px-8 py-3 border border-blue-700 text-blue-700 rounded-lg hover:bg-blue-50 transition">Signup</a>
+      <a href="./login" class="px-8 py-3 bg-black text-white rounded-lg shadow hover:bg-gray-700 transition-all duration-500">Login</a>
+      <a href="./signup" class="px-8 py-3 border border-black text-black rounded-lg hover:bg-blue-50 transition-all duration-500">Signup</a>
     </div>
   </section>
 
@@ -117,6 +141,21 @@
       const menu = document.getElementById('nav-dial');
       menu.classList.toggle('hidden');
     }
+
+    VANTA.CLOUDS({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      backgroundColor: 0xfff7f7,
+      skyColor: 0x404040,
+      cloudColor: 0xc2c2c2,
+      sunColor: 0x6f6f6f,
+      sunGlareColor: 0x544e4e,
+      sunlightColor: 0x6d6d6d
+    });
   </script>
 
 </body>

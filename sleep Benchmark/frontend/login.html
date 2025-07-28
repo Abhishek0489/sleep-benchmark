@@ -8,9 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
+   
     .fade-in {
       animation: fadeIn 0.6s ease-in-out;
     }
@@ -24,27 +22,147 @@
         transform: translateY(0);
       }
     } 
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #272626, #ddd8d8);
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      transform: rotate(-45deg);
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: var(--star-tail-length, 6em);
+      height: 2px;
+      color: white;
+      background: linear-gradient(45deg, currentColor, transparent);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 6px currentColor);
+      transform: translate3d(104em, 0, 0);
+      animation: fall var(--fall-duration, 9s) var(--fall-delay, 0s) linear infinite,
+                tail-fade var(--fall-duration, 9s) var(--fall-delay, 0s) ease-out infinite;
+    }
+
+    .star::before,
+    .star::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(var(--star-tail-length, 6em) / -12);
+      width: 1em;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, currentColor, transparent);
+      border-radius: inherit;
+      animation: blink 2s linear infinite;
+    }
+
+    .star::before {
+      transform: rotate(45deg);
+    }
+
+    .star::after {
+      transform: rotate(-45deg);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(-30em, 0, 0);
+      }
+    }
+
+    @keyframes tail-fade {
+      0%, 50% {
+        width: var(--star-tail-length, 6em);
+        opacity: 1;
+      }
+      70%, 80% {
+        width: 0;
+        opacity: 0.4;
+      }
+      100% {
+        width: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.6;
+      }
+    }
+
   </style>
 </head>
-<body class="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 min-h-screen flex items-center justify-center">
-  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md fade-in">
-    <h2 class="text-3xl font-bold text-center text-blue-700 mb-2">Welcome back </h2> 
-    <p class="text-center text-gray-600 mb-6">Login to your account</p>
-    <form id="login-form" class="space-y-4">
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-        <input id="login-email" type="email" placeholder="name123@example.com" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
-      <div>
-        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-        <input id="login-password" type="password" placeholder="••••••••" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-500 transition duration-300">
-        Login
-      </button>
-    </form>
-    <p class="text-sm mt-4 text-center">Don't have an account? <a href="signup.html" class="text-blue-600">Sign up</a></p>
+<body class=" min-h-screen flex items-center justify-center">
+  
+  <div class="stars">
+    <div class="star"></div>  
+    <div class="star"></div>  
+    <div class="star"></div>   
   </div>
+
+  <div class="bg-[#181f2e]/20 p-8 rounded-2xl shadow-xl w-full max-w-md fade-in text-white">
+  <h2 class="text-3xl text-[#cbd5e1]  font-bold text-center mb-2">Welcome back</h2>
+  <p class="text-center text-[#cbd5e1] mb-6">Login to your account</p>
+  <form id="login-form" class="space-y-4">
+    <div>
+      <label for="email" class="block text-sm font-medium text-[#cfcbcb] mb-1">Email</label>
+      <input id="login-email" type="email" placeholder="name123@example.com" required
+        class="w-full px-4 py-2 bg-[#b0b2b6] border border-[#334155] text-[#313132] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3b82f6]" />
+    </div>
+    <div>
+      <label for="password" class="block text-sm font-medium text-[#cbd5e1] mb-1">Password</label>
+      <input id="login-password" type="password" placeholder="••••••••" required
+        class="w-full px-4 py-2 bg-[#b0b2b6] border border-[#334155] text-[#f8fafc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3b82f6]" />
+    </div>
+    <button type="submit"
+      class="w-full bg-[#020202] hover:bg-[#4a4a4a] text-white py-2 rounded-lg font-semibold transition duration-300">
+      Login
+    </button>
+  </form>
+  <p class="text-sm mt-4 text-center text-[#cbd5e1]">Don't have an account?
+    <a href="signup.html" class="text-[#525354] hover:underline">Sign up</a>
+  </p>
+</div>
+
   <script type="module" src="./src/context/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const starContainer = document.querySelector(".stars");
+      const numberOfStars = 20;
+
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        // Randomized CSS variables
+        const tailLength = (Math.random() * 2.5 + 5).toFixed(2); // 5em - 7.5em
+        const topOffset = (Math.random() * 100).toFixed(2); // 0vh - 100vh
+        const duration = (Math.random() * 6 + 6).toFixed(2); // 6s - 12s
+        const delay = (Math.random() * 10).toFixed(2); // 0s - 10s
+
+        star.style.top = `${topOffset}vh`;
+        star.style.setProperty('--star-tail-length', `${tailLength}em`);
+        star.style.setProperty('--fall-duration', `${duration}s`);
+        star.style.setProperty('--fall-delay', `${delay}s`);
+
+        starContainer.appendChild(star);
+      }
+    });
+
+  </script>
 </body>
 </html>
