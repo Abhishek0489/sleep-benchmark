@@ -1,0 +1,18 @@
+# Node.js dependencies
+/frontend/node_modules
+/server/node_modules
+
+# Production build output from Vite
+/frontend/dist
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+
+# Large machine learning model files
+# These are too large for Git and should be managed separately.
+*.pkl
+
+# OS-specific files
+.DS_Store
+Thumbs.db
