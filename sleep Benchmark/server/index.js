@@ -39,6 +39,10 @@ app.get('/dashboard', (req, res) => {
   res.render('dashboard.ejs', userData);
 });
 
+app.get('/prediction', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/prediction.html'));
+});
+
 app.get('/userdata', (req, res) => {
   console.log("inside the userdata route");
   res.sendFile(path.join(__dirname, '../frontend/dist/userdata.html'));

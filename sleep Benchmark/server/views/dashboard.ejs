@@ -288,10 +288,15 @@
 								To enjoy healthy life , click on the button below
 								</p>
 						</div>
-						<div class="diagnosis_add_button flex justify-center  mt-4 pb-5">	
+						<!-- <div class="diagnosis_add_button flex justify-center  mt-4 pb-5">	
 							<button class="flex items-center gap-2 hover:bg-[var(--clr-success)] bg-green-300  font-semibold w-[50%] rounded-2xl justify-center  shadow-md transition-all duration-300 ease-in-out">
 								<span class="material-symbols-sharp text-base ">add_circle</span>Add 					
 							</button>
+						</div> -->
+						<div class="diagnosis_add_button flex justify-center mt-4 pb-5">
+    						<a href="/prediction" class="flex items-center gap-2 hover:bg-[var(--clr-success)] bg-green-300 font-semibold w-[50%] rounded-2xl justify-center shadow-md transition-all duration-300 ease-in-out">
+        						<span class="material-symbols-sharp text-base">add_circle</span>Add
+    						</a>
 						</div>
 					</div>
 				</div>
@@ -404,13 +409,14 @@
 				<!-- quality of sleep -->
 				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
 
-				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Insomnia</h3>	
-				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Insomnia is a sleep disorder where a person struggles to fall or stay asleep. It can cause tiredness, poor focus, and mood issues. Common causes include stress, anxiety, or bad sleep habits. Treatment involves better sleep routines and stress management..</p>
-							
+				<!-- <h3 class=" text-[var(--clr-dark)] text-lg mt-2">Insomnia</h3>	
+				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Insomnia is a sleep disorder where a person struggles to fall or stay asleep. It can cause tiredness, poor focus, and mood issues. Common causes include stress, anxiety, or bad sleep habits. Treatment involves better sleep routines and stress management..</p> -->
+				<div id="prediction-content">
+    				</div>
 			</div>
     	</div>
-		<script type="module" crossorigin href="/assets/auth-DrJici0X.js"></script>
-		<script type="module" crossorigin src="/assets/dashboard-C5U70t-K.js"></script>
+		<script type="module" crossorigin href="/assets/auth-Cng7g0q9.js"></script>
+		<script type="module" crossorigin src="/assets/dashboard-DtmT6ibD.js"></script>
   </body>
 
 
@@ -491,7 +497,26 @@
 			document.getElementById('modal7').classList.remove('flex');
 			document.getElementById('modal7').classList.add('hidden');
 		}
+		document.addEventListener('DOMContentLoaded', () => {
+    const predictionResult = localStorage.getItem('predictionResult');
 
+    if (predictionResult) {
+      // Find the modal and its content area
+      const modal = document.getElementById('modal7');
+      const contentDiv = document.getElementById('prediction-content');
+
+      // Update the content and show the modal
+      contentDiv.innerHTML = `
+        <h3 class="text-[var(--clr-dark)] text-2xl font-bold text-center mt-2">Prediction Result</h3>
+        <p class="text-blue-600 text-4xl font-bold text-center mt-4 leading-relaxed pb-2">${predictionResult}</p>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      // Clean up the stored result so it doesn't show again
+      localStorage.removeItem('predictionResult');
+    }
+  	});
 		
 	</script>
 </html>
