@@ -40,6 +40,7 @@ def predict():
     
     # 1. Preprocess the data using the loaded preprocessor
     processed_features = preprocessor.transform(input_df)
+    print(processed_features)
     
     # 2. Make a prediction using the loaded model
     prediction_numeric = model.predict(processed_features)
