@@ -14,24 +14,22 @@ document.getElementById('prediction-form').addEventListener('submit', async (e) 
   }
 
   try {
-    const response = await fetch('http://localhost:5001/predict', {
+    // Send data directly to the Node.js server on a new route
+    const response = await fetch('/submit-data', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) throw new Error('Prediction request failed');
-
-    const result = await response.json();
-    
-    // Store the result in localStorage to pass it to the dashboard page
-    localStorage.setItem('predictionResult', result.sleep_disorder_prediction);
-    
-    // Redirect back to the dashboard
-    window.location.href = '/dashboard';
+    if (response.ok) {
+      // If the request is successful, redirect to the URL the server provides
+      window.location.href = response.url;
+    } else {
+      throw new Error('Data submission failed');
+    }
 
   } catch (error) {
     console.error('Error:', error);
-    alert('Failed to get prediction. Please try again.');
+    alert('Failed to submit data. Please try again.');
   }
 });
