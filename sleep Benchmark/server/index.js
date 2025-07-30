@@ -81,6 +81,21 @@ app.get('/userdata', (req, res) => {
 });
 
 
+app.get('/analytics', (req, res) => {
+  // Example data to pass to the analytics page
+  const analyticsData = {
+    pageTitle: 'User Analytics',
+    totalUsers: 150,
+    dataPoints: [
+      { month: 'May', logins: 320 },
+      { month: 'June', logins: 450 },
+      { month: 'July', logins: 510 }
+    ]
+  };
+
+  res.render('analytics', analyticsData);
+});
+
 
 
 app.listen(PORT, () => {
