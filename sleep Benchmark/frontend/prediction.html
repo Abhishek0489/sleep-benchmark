@@ -5,37 +5,76 @@
   <title>Enter Prediction Data</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-    <h2 class="text-2xl font-bold mb-4 text-center">Enter Your Health Details</h2>
-    <form id="prediction-form" class="grid grid-cols-2 gap-4">
-      <input type="number" name="Age" placeholder="Age" required class="p-2 border rounded">
-      <select name="Gender" required class="p-2 border rounded">
-        <option value="">Select Gender</option>
+
+<body class=" bg-[linear-gradient(to_bottom,_#272626,_#ddd8d8)] flex items-center justify-center min-h-screen">
+  <div class="bg-[#181f2e]/20 py-6 px-8  rounded-xl shadow-lg w-full max-w-2xl">
+    <h2 class="text-3xl font-bold mb-8 text-gray-400 text-center">Enter Your Health Details</h2>
+    <form id="prediction-form" class="grid grid-cols-2 gap-10 gap-y-8 ">
+      <input type="number" name="Age" placeholder="Age" required class="p-2 border rounded-lg bg-gray-200">
+      <select id="genderSelect" name="Gender"  required class="p-2 border rounded-lg bg-gray-200 text-gray-400" 
+      onchange="this.className = 'p-2 border rounded text-black'">
+        <option value="" disabled selected >Select Gender</option>
         <option>Male</option>
         <option>Female</option>
       </select>
-      <input type="text" name="Occupation" placeholder="Occupation" required class="p-2 border rounded">
-      <input type="number" name="Sleep Duration" placeholder="Sleep Duration (hrs)" step="0.1" required class="p-2 border rounded">
-      <input type="number" name="Quality of Sleep" placeholder="Quality of Sleep (1-10)" required class="p-2 border rounded">
-      <input type="number" name="Physical Activity Level" placeholder="Activity Level (mins/day)" required class="p-2 border rounded">
 
-      <input type="number" name="Stress Level" placeholder="Stress Level (1-10)" required class="p-2 border rounded">
-      <input type="number" name="Heart Rate" placeholder="Heart Rate (bpm)" required class="p-2 border rounded">
-      <input type="number" name="Daily Steps" placeholder="Daily Steps" required class="p-2 border rounded">
-      <input type="number" name="Systolic" placeholder="Systolic Blood Pressure" required class="p-2 border rounded">
-      <input type="number" name="Diastolic" placeholder="Diastolic Blood Pressure" required class="p-2 border rounded">
-      <select name="BMI Category" required class="p-2 border rounded">
-        <option value="">Select BMI Category</option>
+      <!-- <input type="text" name="Occupation" placeholder="Occupation" required class="p-2 border rounded"> -->
+
+      <select id="occupationSelect" name="Occupation" required class="p-2 border rounded-lg bg-gray-200  text-gray-400" onchange="this.className = 'p-2 border rounded text-black'">
+        <option value="" disabled selected>Select Occupation</option>
+        <option>Software Engineer</option>
+        <option>Doctor</option>
+        <option>Sales Representative</option>
+        <option>Teacher</option>
+        <option>Nurse</option>
+        <option>Engineer</option>
+        <option>Accountant</option>
+        <option>Scientist</option>
+        <option>Lawyer</option>
+        <option>Salesperson</option>
+        <option>Manager</option>
+      </select>
+
+      <input type="number" name="Sleep Duration" placeholder="Sleep Duration (hrs)" step="0.1" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Quality of Sleep" placeholder="Quality of Sleep (1-10)" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Physical Activity Level" placeholder="Activity Level (mins/day) (0-100)" required class="p-2 border rounded-lg bg-gray-200">
+
+      <input type="number" name="Stress Level" placeholder="Stress Level (1-10)" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Heart Rate" placeholder="Heart Rate (bpm)" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Daily Steps" placeholder="Daily Steps" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Systolic" placeholder="Systolic Blood Pressure" required class="p-2 border rounded-lg bg-gray-200">
+      <input type="number" name="Diastolic" placeholder="Diastolic Blood Pressure" required class="p-2 border rounded-lg bg-gray-200">
+      <select id="bmiSelect" name="BMI Category" required class="p-2 border rounded-lg bg-gray-200  text-gray-400" onchange="this.className = 'p-2 border rounded text-black'">
+        <option value="" disabled selected>Select BMI Category</option>
         <option>Normal</option>
         <option>Normal Weight</option>
         <option>Overweight</option>
         <option>Obese</option>
       </select>
 
-      <button type="submit" class="col-span-2 w-full bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-blue-600">Get Prediction</button>
+      <button type="submit" class="col-span-2 text-xl w-full bg-gray-600 text-white py-2 rounded-lg font-semibold hover:bg-black">Get Prediction</button>
     </form>
   </div>
   <script type="module" src="/src/prediction.js"></script>
+  <script>
+    const genderSelect = document.getElementById('genderSelect');
+    genderSelect.addEventListener('change', function() {
+      this.classList.remove('text-gray-500');
+      this.classList.add('text-black');
+    });
+
+    const occupationSelect = document.getElementById('occupationSelect');
+    occupationSelect.addEventListener('change', function() {
+      this.classList.remove('text-gray-500');
+      this.classList.add('text-black');
+    });
+
+    const bmiSelect = document.getElementById('bmiSelect');
+    bmiSelect.addEventListener('change', function() {
+      this.classList.remove('text-gray-500');
+      this.classList.add('text-black');
+    });
+  </script>
+  
 </body>
-</html>
+</html> 
