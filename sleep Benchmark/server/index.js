@@ -6,6 +6,8 @@ const app = express();
 const axios = require('axios');
 app.use(express.json());
 const PORT = process.env.PORT || 5000;
+const session = require('express-session');
+const md = require('markdown-it')();
 
 //seve dynamic directory
 app.set('view engine', 'ejs');
@@ -14,18 +16,36 @@ app.set('views', path.join(__dirname, 'views'));
 // 1. Serve all static files (CSS, JS, images) from the 'dist' directory
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
+const { getHealthAnalysis } = require('./ai-api-call.js');
+
+app.use(session({
+  secret: 'your-very-secret-key-that-is-long-and-random', // Replace with a random string
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set to true if you are using HTTPS
+}));
+
+
+
+
 
 
 // --- NEW /submit-data route ---
 // It's now an async function to await the prediction
 app.post('/submit-data', async (req, res) => {
   const formData = req.body;
-  console.log('Data received in Node.js:', formData);
+  console.log('Initial form data received:', formData);
 
   try {
     // 1. Node.js calls the Python API
     const pythonApiResponse = await axios.post('http://localhost:5001/predict', formData);
     const predictionResult = pythonApiResponse.data.sleep_disorder_prediction;
+
+    req.session.formData = {
+      ...formData, // Copies all original form fields
+      recentPrediction: predictionResult // Adds the new prediction
+    };
+
 
     // 2. Redirect to the dashboard with the result as a query parameter
     res.redirect(`/dashboard?prediction=${encodeURIComponent(predictionResult)}`);
@@ -80,20 +100,38 @@ app.get('/userdata', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/userdata.html'));
 });
 
+app.get('/analytics', async (req, res) => {
+  const userHealthData = req.session.formData;
 
-app.get('/analytics', (req, res) => {
-  // Example data to pass to the analytics page
-  const analyticsData = {
-    pageTitle: 'User Analytics',
-    totalUsers: 150,
-    dataPoints: [
-      { month: 'May', logins: 320 },
-      { month: 'June', logins: 450 },
-      { month: 'July', logins: 510 }
-    ]
-  };
+  if (!userHealthData) {
+    return res.render('analytics', {
+      pageTitle: 'Health Analytics',
+      analysis: '<h2>No Data Found</h2><p>Please <a href="/prediction" class="text-blue-600">submit your health data</a> to get an analysis.</p>'
+    });
+  }
 
-  res.render('analytics', analyticsData);
+  try {
+    console.log("Calling health analysis function with session data...");
+    
+    // The prompt is no longer created here.
+    // Just pass the userHealthData object directly.
+    const aiResponseText = await getHealthAnalysis(userHealthData); 
+    const analysisHtml = md.render(aiResponseText);
+    
+    req.session.formData = null;
+
+    res.render('analytics', {
+      pageTitle: 'Your AI-Powered Health Analytics',
+      analysis: analysisHtml
+    });
+
+  } catch (error) {
+    console.error("Error calling Gemini API:", error);
+    res.render('analytics', {
+      pageTitle: 'Error',
+      analysis: '<h2>Error</h2><p>Could not retrieve analysis at this time.</p>'
+    });
+  }
 });
 
 

@@ -1,29 +1,73 @@
-// 1. Import the library
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-
-const API_KEY = "";
-const genAI = new GoogleGenerativeAI(API_KEY);
-
-// Choose the model you want to use
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-async function run() {
-  const prompt = `  
-  so I have this following Data Gender- Male , age-20 , sleep_duration -7 , quality of sleep - 9 , physical activity-42
-, stress level -8 ,BMI CATERGORY - overweight , heart rate - 80 , daily step - 4000 , blood pressure - 120/90,
-and sleep disorder - NONE 
-by taking all data diagnose this and suggest some changes required , how it affect sleep and health and how to improve it and what are long term merit and demerit , give response in 300 words
-  
-  
-  `;
-
-  
+async function callGeminiAPI(prompt) {
+  const genAI = new GoogleGenerativeAI("AIzaSyArNfnNGyhENiAHOVnXD857Fx4gFO6zzaU");
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
-  
-  console.log(text);
+  const apiResponse = await result.response;
+  return apiResponse.text();
 }
 
-run();
+async function getHealthAnalysis(healthData) {
+  // 1. Console log the incoming data
+  console.log('Data received for AI analysis:', healthData);
+
+  const {
+    Age,
+    Gender,
+    Occupation,
+    'Sleep Duration': sleepDuration,
+    'Quality of Sleep': qualityOfSleep,
+    'Physical Activity Level': physicalActivityLevel,
+    'Stress Level': stressLevel,
+    'BMI Category': bmiCategory,
+    'Heart Rate': heartRate,
+    'Daily Steps': dailySteps,
+    Systolic: systolic,
+    Diastolic: diastolic,
+    recentPrediction
+  } = healthData;
+
+  // 2. Console log all the extracted variables
+  console.log('Extracted Health Data for AI Prompt:', {
+    Age,
+    Gender,
+    Occupation,
+    sleepDuration,
+    qualityOfSleep,
+    physicalActivityLevel,
+    stressLevel,
+    bmiCategory,
+    heartRate,
+    dailySteps,
+    systolic,
+    diastolic,
+    recentPrediction
+  });
+
+
+
+  // 3. Use all the new variables in a more comprehensive prompt
+  const prompt = `
+    Analyze the following user health data and provide a detailed, easy-to-read summary with actionable improvement tips.
+    The user is a ${Age}-year-old ${Gender} who works as an ${Occupation}.
+
+    Key Health Metrics:
+    - Sleep Duration: ${sleepDuration} hours
+    - Quality of Sleep (1-10): ${qualityOfSleep}
+    - Stress Level (1-10): ${stressLevel}
+    - Physical Activity: ${physicalActivityLevel} minutes per day
+    - Daily Steps: ${dailySteps}
+    - Heart Rate: ${heartRate} bpm
+    - Blood Pressure: ${systolic}/${diastolic}
+    - BMI Category: ${bmiCategory}
+
+    The user's recent sleep disorder prediction from our model was: "${recentPrediction}".
+
+    Based on all this information, provide a holistic analysis and tailored advice. Format the response in markdown with headings and bullet points.
+  `;
+
+  return callGeminiAPI(prompt);
+}
+
+module.exports = { getHealthAnalysis };
