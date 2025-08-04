@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dashBoard</title>
-    <link rel="stylesheet" href="./public/assets/output.css" />
+    
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp"
@@ -48,160 +50,164 @@
 		body {
 			font-family: "Poppins", sans-serif;
 			font-weight: 300;
+			
+
 		}
 		.font-montserrat {
 			font-family: "Montserrat", sans-serif;
 		}
+
+	
 		
     </style>
   	</head>
 	
-	<body class="text-[0.88rem] bg-gradient-to-r from-cyan-100 via-blue-200 to-cyan-100 w-screen h-screen font-poppins overflow-x-hidden user-select-none">
+	<body class="text-[0.88rem] bg-gradient-to-b from-[#000000] via-[#a1a0a0] to-[#3a3a3a] w-full h-screen font-poppins ">
 
 		<!-- navbar  -->
  
-		<div id="nav">
-			<div class="nav bg-gradient-to-r from-cyan-50 via-blue-200 to-cyan-50 flex align-center justify-between px-8 py-4 shadow-[var(--box-shadow)] shadow-black">
-				<div class="logo  gap-2 ">
-					
-					<h2 class="text-[1.4rem] text-[var(--clr-dark)] font-bold">Health & Sleep</h2>
-				</div>
-				<div class="top flex justify-start gap-8">
+		
+		<div id="nav" class="nav flex items-center justify-between px-8 py-4 shadow-md shadow-gray-950 text-white">
+			<div class="logo gap-2">
+				<h2 class="text-[1.4rem] font-bold">Health & Sleep</h2>
+			</div>
 
-					<button id="menu-bar" class="hidden">
-						<span class="material-symbols-sharp"> menu </span>
-					</button>
-					<div class="profile flex gap-8 text-center">
-						<div class="info">
-							<p class="name"><b id="user-name"></b></p>
-							<small class="text-[var(--clr-info-dark)]">Admin</small>
-							<small class="text-[var(--clr-info-dark)]"></small>
-						</div>
-						<div class="profile-photo ">
-							<img  class = "h-[2.8rem] w-[2.8rem] rounded-[50%] overflow-hidden" src="/assets/assets1.png" alt="profile photo"/>
-						</div>
+			<div class="top flex justify-start gap-8">
+				<button id="menu-bar" class="hidden">
+					<span class="material-symbols-sharp"> menu </span>
+				</button>
+
+				<div class="profile flex gap-8 text-center">
+					<div class="info">
+						<p class="name pt-2.5 text-lg"><b id="user-name"></b></p>
+					</div>
+					<div id="gender-icon" class="h-[2.8rem] w-[2.8rem] rounded-full overflow-hidden bg-white flex items-center justify-center">
+						<!-- Gender SVG will be inserted here -->
 					</div>
 				</div>
 			</div>
-				
-
 		</div>
-		<!-- navbar end  -->
+						
 
-    	<div class="container grid grid-cols-[14rem_auto_14rem] w-[96%] gap-[1.8rem] mx-auto">
+		
+		<!-- navbar end  -->
+		 
+
+    	<div class="container grid grid-cols-1 lg:grid-cols-[14rem_1fr_minmax(0,_14rem)] md:grid-cols-[14rem_1fr] w-full gap-4 px-4 md:px-8 lg:px-16 mt-4">
       <!-- aside section start  -->
       		<aside class="">
-				<div class="sidebar bg-cyan-50 h-[85vh] flex flex-col relative mt-[1rem] rounded-2xl">
+				<div id="sidebar" class="bg-gray-300 shadow-lg flex flex-col relative mt-[1rem] rounded-2xl p-4 md:h-[85vh] lg:h-[83vh] ">
 				<!-- elements -->
-				<a class="group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[var(--clr-primary)]" href="index.html" >
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
-					>grid_view</span
-					>
-					<h3 class="font-medium">Dashboard</h3>
-				</a>
+					<a class="group flex text-[#363949] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[#7380ec]" href="index.html"  >
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>grid_view</span
+						>
+						<h3 class="font-bold text-[#363949] ">Dashboard</h3>
+					</a>
 
-				<a
-					class="group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[var(--clr-primary)]"
-					href="userData.html"
-				>
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+					<a
+						class="group flex text-[#363949]  ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[#7380ec]"
+						href="userData.html"
 					>
-					person
-					</span>
-					<h3 class="font-medium">Userdata</h3>
-				</a>
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>
+						person
+						</span>
+						<h3 class="font-bold text-[#363949] ">Userdata</h3>
+					</a>
 
-				<a
-					class="group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[var(--clr-primary)]"
-					href="#"
-				>
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+					<a
+						class="group flex text-[#363949]  ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[#7380ec]"
+						href="#"
 					>
-					show_chart
-					</span>
-					<h3 class="font-medium">Analytics</h3>
-				</a>
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>
+						show_chart
+						</span>
+						<h3 class="font-bold text-[#363949] ">Analytics</h3>
+					</a>
 
-				<a
-					class="group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[var(--clr-primary)]"
-					href="#"
-				>
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+					<a
+						class="group flex text-[#363949]  ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[#7380ec]"
+						href="#"
 					>
-					report
-					</span>
-					<h3 class="font-medium">reports</h3>
-				</a>
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>
+						report
+						</span>
+						<h3 class="font-bold text-[#363949] ">reports</h3>
+					</a>
 
-				<a
-					class="group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[var(--clr-primary)]"
-					href="#"
-				>
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+					<a
+						class="group flex text-[#363949]  ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in hover:text-[#7380ec]"
+						href="#"
 					>
-					settings
-					</span>
-					<h3 class="font-medium">settings</h3>
-				</a>
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>
+						settings
+						</span>
+						<h3 class="font-bold text-[#363949] ">settings</h3>
+					</a>
 
-				<a
-					id="logout-button"
-					class="last-child group flex text-[var(--clr-info-dark)] ml-8 gap-4 items-center h-[3.2rem] transition-all duration-100 ease-in absolute bottom-[1rem]  hover:text-[var(--clr-primary)] w-full"
-					href="#"
-				>
-					<span
-					class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
-					>logout
-					</span>
-					<h3 class="font-medium">logout</h3>
-				</a>
+					<a
+						id="logout-button"
+						class="last-child group flex text-[#363949] ml-8 gap-4 items-center h[3.2rem] transition-all duration-100 ease-in mt-auto hover:text-[#7380ec] w-full"
+						href="#"
+					>
+						<span
+						class="material-symbols-sharp text-[1.6rem] transition-all duration-100 ease-in ml-0 group-hover:ml-4"
+						>logout
+						</span>
+						<h3 class="font-bold text-[#363949] ">logout</h3>
+					</a>
 				</div>
       		</aside>			
-      <!-- aside section end  -->
+      <!-- aside section end  -->			
+      
 
 		<!-- main section start  -->
 			<main class="mt-4 w-auto" >
-				<p class="text-5xl text-center font-montserrat font-semibold  mt-3">Dashboard</p>	        	       	
+				<p class="text-5xl text-center font-montserrat font-semibold mt-3 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-purple-500 to-pink-500" >Dashboard</p>	        	       	
 				<div class="insights  grid grid-cols-3 gap-[2rem] gap-y-10 mt-8 ">
 					<!-- start Quality-of-sleep -->		   
-					<div onclick="openDescription1()" class="Quality-of-sleep bg-cyan-50 h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105 items-center">
-						<span class="material-symbols-sharp bg-[var(--clr-coral)] p-2 rounded-full text-[var(--clr-white)] text-[2rem] ">trending_up</span>
+					<div onclick="openDescription1()" class="Quality-of-sleep bg-gray-300 backdrop-blur-sm  h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105 items-center">
+						<span class="material-symbols-sharp bg-yellow-500 p-2 rounded-full text-[var(--clr-white)] text-[2rem] ">sleep_score</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Quality Of Sleep</h3>
-								<small class="text-[var(--clr-info-dark)]">Sleep depth and restfulness</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold text-lg  mt-2">Quality Of Sleep</h3>
+								<small class="text-[#58595c] font-semibold ">Sleep depth and restfulness</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>
 						</div>					
 					</div>
 					<!-- end Quality-of-sleep -->
 
 					<!-- start Stress Level -->
-					<div onclick="openDescription2()" class="Stress-Level bg-cyan-50  h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">
-						<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">local_mall</span>
+					<div onclick="openDescription2()" class="Stress-Level bg-gray-300 backdrop-blur-sm  h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md  shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">
+						<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">sentiment_stressed</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Stress Level</h3>
-								<small class="text-[var(--clr-info-dark)]">Indicates mental or emotional strain</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Stress Level</h3>
+								<small class="text-[#58595c] font-semibold ">Indicates mental or emotional strain</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>						
 						</div>
 					</div>
 					<!-- end Stress Level -->
 
 					<!-- start Sleep Duration -->
-					<div  onclick="openDescription3()" class="Sleep Duration bg-cyan-50 h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105 ">
-						<span class="material-symbols-sharp bg-[var(--clr-success)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">stacked_line_chart</span>
+					<div  onclick="openDescription3()" class="Sleep Duration bg-gray-300 backdrop-blur-sm h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105 ">
+						<span class="material-symbols-sharp bg-[var(--clr-success)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">bedtime</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Sleep Duration</h3>
-								<small class="text-[var(--clr-info-dark)]">Total hours of sleep each night</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Sleep Duration</h3>
+								<small class="text-[#58595c] font-semibold ">Total hours of sleep each night</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>						
 						</div>						
 					</div>
@@ -209,39 +215,39 @@
 
 					<!-- start BMI -->
 
-					<div  onclick="openDescription4()" class="BMI bg-cyan-50 h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">
-						<span class="material-symbols-sharp bg-[var(--clr-coral)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
+					<div  onclick="openDescription4()" class="BMI  bg-gray-300 backdrop-blur-sm h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">
+						<span class="material-symbols-sharp bg-yellow-500 p-2 rounded-full text-[var(--clr-white)] text-[2rem]">body_fat</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">BMI</h3>
-								<small class="text-[var(--clr-info-dark)]"> Measures body fat using height and weight</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold  text-lg mt-2">BMI</h3>
+								<small class="text-[#58595c] font-semibold "> Measures body fat using height and weight</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>						
 						</div>					
 					</div>
 					<!-- end BMI -->
 
 					<!-- start Blood-Pressure -->
-					<div onclick="openDescription5()" class="Blood-Pressure bg-cyan-50 h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">
-						<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">local_mall</span>
+					<div onclick="openDescription5()" class="Blood-Pressure bg-gray-300 backdrop-blur-sm h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">
+						<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">blood_pressure</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Blood Pressure</h3>
-								<small class="text-[var(--clr-info-dark)]">Tracks blood pressure levels</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Blood Pressure</h3>
+								<small class="text-[#58595c] font-semibold ">Tracks blood pressure levels</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>						
 						</div>					
 					</div>
 					<!-- end Blood-Pressure -->
 
 					<!-- start Daily-Steps -->
-					<div  onclick="openDescription6()" class="Daily-Steps bg-cyan-50 h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">
-						<span class="material-symbols-sharp bg-[var(--clr-success)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">stacked_line_chart</span>
+					<div  onclick="openDescription6()" class="Daily-Steps bg-gray-300 backdrop-blur-sm h-full p-[var(--card-padding)] rounded-[var(--card-border-radius)] mt-4 shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">
+						<span class="material-symbols-sharp bg-[var(--clr-success)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">directions_walk</span>
 						<div class="middle flex items-center justify-between">
 							<div class="left">
-								<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Daily Steps</h3>
-								<small class="text-[var(--clr-info-dark)]">Counts steps taken per day</small>	
-								<h1 class="text-[1.6rem] text-green-400">7/10</h1>
+								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Daily Steps</h3>
+								<small class="text-[#58595c] font-semibold ">Counts steps taken per day</small>	
+								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
 							</div>						
 						</div>						
 					</div>
@@ -259,37 +265,79 @@
 			<div class="right-side mt-4 ">
 				<!-- start Sleep_Disorder -->
 				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8">
-					<div class="Sleep_Disorder mt-4 bg-cyan-50 p-[var(--card-padding)] pt-4 rounded-[var(--card-border-radius)] shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">						
-						<h1 class="text-[var(--clr-dark)] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
+					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
+						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
 						<div class="flex flex-col items-center gap-3">							
-							<div class="w-14 h-14 flex items-center justify-center rounded-full bg-[var(--clr-success)] shadow-md">
+							<div class="w-14 h-14 flex items-center justify-center rounded-full  shadow-md">
 								<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)]  text-[2rem]">airline_seat_flat</span>
 							</div>
 							<div class="text-center">
-								<h3 class="text-[var(--clr-dark)] text-lg">Insomnia</h3>
-								<p class="text-[var(--clr-info-dark)] text-sm mt-0.5">
+								<h3 class="text-[#363949] font-semibold text-lg">Insomnia</h3>
+								<p class="text-[#58595c] font-normal text-sm mt-0.5">
 								Insomnia is a sleep disorder characterized by difficulty falling asleep, staying asleep, or waking too early.
 								</p>
 							</div>
 						</div>
 					</div>
 				</div> 
+
+				<!-- Sleep Apnea  -->
+
+				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8 hidden">
+					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
+						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
+						<div class="flex flex-col items-center gap-3">							
+							<div class="w-14 h-14 flex items-center justify-center rounded-full bg-[var(--clr-success)] shadow-md">
+								<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)]  text-[2rem]">airline_seat_flat</span>
+							</div>
+							<div class="text-center">
+								<h3 class="text-[#363949] font-semibold text-lg">Sleep Apnea</h3>
+								<p class="text-[#58595c] font-normal text-sm mt-0.5">
+								Sleep apnea is a sleep disorder where breathing repeatedly stops and starts.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- none -->
+
+				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8 hidden">
+					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
+						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
+						<div class="flex flex-col items-center gap-3">							
+							<div class="w-14 h-14 flex items-center justify-center rounded-full bg-[var(--clr-success)] shadow-md">
+								<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)]  text-[2rem]">sentiment_very_satisfied</span>
+							</div>
+							<div class="text-center">
+								<h3 class="text-[#363949] font-semibold text-lg">None</h3>
+								<p class="text-[#58595c] font-normal text-sm mt-0.5">
+								You don’t have any sleep disorders or issues related to your sleep—your sleep cycle seems regular and restful. That’s a great sign and something to maintain. Just remember to keep prioritizing good sleep, avoid overthinking, and don’t let stress affect your peace. A calm mind and proper rest go a long way in keeping you healthy and energized.
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
 				<!-- end Sleep_Disorder -->
+
 
 				<!-- start diagnosis -->
 				<div class="Diagnosis mt-10">
-					<div  onclick="openDescription8()" class="diagnosis_card bg-cyan-50 pt-4 rounded-[var(--card-border-radius)]  shadow-[var(--box-shadow)] transition-all duration-300 ease-in-out hover:shadow-none hover:cursor-pointer hover:scale-105">
-						<h1 class="text-[var(--clr-dark)] text-xl font-extrabold mb-3 text-center">Diagnosis</h1>
+					<div  onclick="openDescription8()" class="diagnosis_card  pt-4 rounded-[2rem] bg-gray-300 backdrop-blur-sm shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">
+						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Diagnosis</h1>
 						<div class="flex flex-col items-center gap-3">							
-							<div class="w-14 h-14 flex items-center justify-center rounded-full bg-[var(--clr-success)] shadow-md ">
-								<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)]  text-[2rem]">airline_seat_flat</span>
+							<div class="w-14 h-14 flex items-center justify-center rounded-full  shadow-md ">
+								<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)]  text-[2rem]">content_paste_search</span>
 							</div> 			
-							<p class="text-[var(--clr-info-dark)] px-8 text-sm mt-0.5 text-center">
+							<p class="text-[#58595c] font-semibold px-8 text-sm mt-0.5 text-center">
 								To enjoy healthy life , click on the button below
 								</p>
 						</div>
 						<div class="diagnosis_add_button flex justify-center  mt-4 pb-5">	
-							<button class="flex items-center gap-2 hover:bg-[var(--clr-success)] bg-green-300  font-semibold w-[50%] rounded-2xl justify-center  shadow-md transition-all duration-300 ease-in-out">
+							<button class="flex items-center gap-2 hover:bg-[#41f1b6] bg-green-300  font-semibold w-[50%] rounded-2xl justify-center  shadow-md transition-all duration-300 ease-in-out">
 								<span class="material-symbols-sharp text-base ">add_circle</span>Add 					
 							</button>
 						</div>
@@ -301,14 +349,14 @@
     	</div>
 
 		<!-- modal 1-->
-		<div id="modal1" class="fixed inset-0 bg-white/30 backdrop-blur-sm hidden items-center justify-center z-50">
-			<div class="bg-gray-100 items-center p-6 rounded-2xl shadow-xl w-full max-w-md relative">
+		<div id="modal1" class="fixed inset-0 bg-white/30 backdrop-blur-sm hidden items-center justify-center  z-50">
+			<div class="bg-gray-100 items-center p-6 rounded-2xl shadow-xl w-full max-w-md relative ">
 			<!-- Close Button -->
 				<button onclick="closeDescription1()" class="absolute top-2 right-2 text-gray-500 hover:text-blue-700 text-2xl">
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-coral)] p-2 rounded-full text-[var(--clr-white)] text-[2rem] ">trending_up</span>
+				<span class="material-symbols-sharp bg-[var(--clr-coral)] p-2 rounded-full text-[var(--clr-white)] text-[2rem] ">sleep_score</span>
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Quality Of Sleep</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Quality of sleep refers to how well you sleep, not just how long. It includes falling asleep easily, staying asleep through the night, and feeling refreshed upon waking. Good sleep quality supports mental focus, emotional balance, and physical health. Poor quality sleep, even if long, can lead to fatigue, irritability, and health issues.</p>
 				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
@@ -323,7 +371,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">local_mall</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">sentiment_stressed</span>
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Stress Level</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Stress level refers to the amount of mental or emotional strain a person is experiencing. It can be influenced by daily responsibilities, work pressure, personal challenges, or health issues. While a small amount of stress can be motivating, high or prolonged stress can affect sleep, concentration, mood, and overall well-being. Managing stress through relaxation, exercise, and healthy habits is important for maintaining balance and good health.</p>
 				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
@@ -338,7 +386,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">stacked_line_chart</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">bedtime</span>
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Sleep Duration</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Sleep duration refers to the total amount of time a person spends sleeping each night. It plays a vital role in physical recovery, brain function, and emotional stability. While individual needs vary, most adults require 7 to 9 hours of sleep for optimal health. Too little or too much sleep can lead to fatigue, poor concentration, and increased risk of health problems. Maintaining a consistent sleep schedule helps improve both sleep duration and overall well-being.</p>
@@ -354,7 +402,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">body_fat</span>
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">BMI</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">BMI (Body Mass Index) is a numerical value calculated from a person’s height and weight. It is commonly used as a simple screening tool to categorize individuals into weight groups such as underweight, normal weight, overweight, or obese. While BMI gives a general indication of body fat, it does not measure fat directly or account for muscle mass, bone density, or distribution of fat. Despite its limitations, it remains a useful starting point for assessing health risks related to weight.</p>
@@ -370,7 +418,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">blood_pressure</span>
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Blood Pressure</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Blood pressure is the force of blood pushing against the walls of the arteries as the heart pumps. It is measured using two numbers: systolic (when the heart beats) over diastolic (when the heart rests between beats). A normal blood pressure is typically around 120/80 mmHg. Consistently high blood pressure, or hypertension, can lead to serious health problems like heart disease, stroke, and kidney damage. Monitoring and maintaining healthy blood pressure through diet, exercise, and stress management is essential for overall cardiovascular health.</p>
@@ -386,7 +434,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">directions_walk</span>
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Daily Steps</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Daily steps count how much you walk in a day. Taking around 8,000–10,000 steps daily boosts heart health, improves mood, helps manage weight, and lowers disease risk. Even small increases make a big difference..</p>
@@ -402,7 +450,7 @@
 				&times;
 				</button>
 				<!-- quality of sleep -->
-				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">trending_up</span>
+				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">airline_seat_flat</span>
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Insomnia</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Insomnia is a sleep disorder where a person struggles to fall or stay asleep. It can cause tiredness, poor focus, and mood issues. Common causes include stress, anxiety, or bad sleep habits. Treatment involves better sleep routines and stress management..</p>
@@ -494,4 +542,92 @@
 
 		
 	</script>
+		<script>
+	// Example: simulate data from form or API
+	const userName = "Deepraj";
+	const userGender = "male"; // or "female"
+
+	document.getElementById("user-name").innerText = userName;
+
+	const genderIcon = document.getElementById("gender-icon");
+
+	const maleSVG = `
+		<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512"  xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#000000;}
+</style>
+<g>
+	<path class="st0" d="M430.902,405.469c-10.648-18.16-27.114-29.081-42.961-36.368c-15.854-7.28-31.537-11.213-40.981-14.778
+		c-7.457-2.776-15.615-7.117-21.419-11.798c-2.912-2.327-5.212-4.736-6.607-6.832c-1.422-2.123-1.864-3.756-1.857-4.844
+		c0-7.512,0-10.9,0-22.324c10.002-11.125,24.379-28.374,30.278-55.719c2.069-0.932,4.11-1.98,6.076-3.347
+		c4.892-3.375,9.042-8.288,12.553-14.95c3.545-6.695,6.675-15.261,10.023-26.964c1.694-5.946,2.477-11.104,2.477-15.69
+		c0.007-5.294-1.082-9.893-3.082-13.622c-0.184-0.34-0.422-0.592-0.619-0.912c4.334-25.937,21.195-151.704-60.06-148.574
+		c-19.16-20.902-67.932-47.03-121.929-10.451c-59.005,39.974-69.51,132.639-52.793,155.236c-1.266,1.34-2.45,2.891-3.409,4.702
+		c-2,3.729-3.096,8.328-3.089,13.622c0,4.599,0.789,9.757,2.483,15.69c4.477,15.595,8.525,25.665,13.758,33.055
+		c2.62,3.667,5.593,6.614,8.832,8.859c1.966,1.367,4.008,2.415,6.069,3.347c5.906,27.346,20.27,44.594,30.271,55.719
+		c0,11.41,0,14.812,0,22.324c0.02,0.939-0.449,2.654-2,4.872c-2.259,3.307-6.695,7.267-11.853,10.614
+		c-5.137,3.368-10.988,6.219-15.894,7.948c-6.376,2.245-15.554,4.763-25.598,8.308c-15.07,5.341-32.353,13.037-46.192,26.849
+		c-13.874,13.765-23.726,33.945-23.645,61.624c0,3.525,0.157,7.172,0.477,10.955c0.204,2.354,1.034,4.307,2.034,5.974
+		c1.912,3.102,4.504,5.504,7.756,7.954c5.688,4.225,13.595,8.369,23.862,12.472c30.72,12.207,82.683,23.563,152.14,23.583
+		c56.433,0,101.36-7.539,132.666-16.881c15.663-4.688,27.904-9.791,36.694-14.853c4.409-2.558,7.954-5.069,10.757-7.797
+		c1.402-1.375,2.626-2.817,3.64-4.477c1-1.667,1.83-3.62,2.034-5.974c0.313-3.776,0.47-7.41,0.47-10.928
+		C442.279,432.644,437.992,417.539,430.902,405.469z M321.894,358.772c0.347,0.231,0.735,0.394,1.089,0.626l-26.747,65.36
+		l-32.251-40.321l46.989-34.531C314.179,353.186,317.88,356.132,321.894,358.772z M178.77,245.913l-0.776-4.389l-4.192-1.497
+		c-2.667-0.952-4.702-1.925-6.478-3.157c-2.619-1.851-5-4.375-7.77-9.553c-2.742-5.144-5.654-12.832-8.832-23.978
+		c-1.395-4.878-1.892-8.668-1.892-11.485c0.007-3.266,0.634-5.185,1.273-6.389c0.966-1.756,2.15-2.504,3.66-3.11
+		c0.013-0.007,0.027-0.007,0.04-0.014c12.329,11.432,28.536,44.975,28.536,44.975l-3.484-55.739c0,0,76.641-17.418,128.897-66.19
+		c17.418,17.418,27.869,87.092,27.869,87.092l3.484,24.386l16.016-35.116c0.538-0.007,2.926,0.238,4.512,1.3
+		c0.878,0.558,1.592,1.211,2.245,2.416c0.64,1.204,1.266,3.116,1.272,6.389c0.007,2.817-0.497,6.599-1.885,11.485
+		c-4.226,14.887-8.015,23.542-11.486,28.346c-1.742,2.422-3.334,3.946-5.103,5.185c-1.776,1.232-3.81,2.204-6.478,3.157
+		l-4.198,1.497l-0.769,4.389c-4.906,27.461-19.065,42.913-29.516,54.555l-1.966,2.184v2.946c0,13.928,0,17.112,0,25.25
+		c0.007,3.681,1.021,7.063,2.558,10.111l-48.309,35.504l-48.39-35.558c1.551-3.021,2.613-6.369,2.626-10.057
+		c0-8.138,0-11.315,0-25.25v-2.946l-1.966-2.184C197.822,288.826,183.676,273.38,178.77,245.913z M195.488,354.812
+		c1.946-1.551,3.797-3.197,5.498-4.939l47.037,34.564l-32.258,40.321l-26.733-65.346
+		C191.256,357.969,193.433,356.445,195.488,354.812z M426.541,460.193c-0.326,0.518-1.524,1.864-3.64,3.416
+		c-3.994,3.007-10.935,6.79-20.338,10.532c-28.284,11.295-78.777,22.548-146.56,22.535c-55.045,0-98.646-7.39-128.278-16.248
+		c-14.799-4.409-26.128-9.226-33.428-13.444c-3.64-2.096-6.259-4.056-7.688-5.471c-0.633-0.612-0.98-1.068-1.156-1.32
+		c-0.246-3.17-0.388-6.232-0.388-9.131c0.02-16.139,3.627-28.298,9.247-37.966c8.41-14.466,21.779-23.726,36.075-30.319
+		c14.288-6.6,29.067-10.26,39.872-14.044c2.905-1.034,5.933-2.374,8.968-3.851l33.401,81.648l43.376-54.228l43.376,54.228
+		l33.415-81.683c2.926,1.415,5.885,2.742,8.798,3.831c7.253,2.708,16.174,5.212,25.631,8.587
+		c14.18,5.035,29.285,11.988,40.525,23.188c11.192,11.254,19.099,26.454,19.188,50.636
+		C426.936,453.975,426.793,457.023,426.541,460.193z"/>
+	<circle class="st0" cx="255.786" cy="474.4" r="6.532"/>
+	<circle class="st0" cx="256.221" cy="433.903" r="6.532"/>
+</g>
+</svg>
+`;
+
+	const femaleSVG = `
+		<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512"  xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#000000;}
+</style>
+<g>
+	<path class="st0" d="M394.907,363.894c-0.07-0.028-0.14-0.056-0.21-0.084c-9.137-3.446-18.077-5.976-25.948-8.13
+		c-5.243-1.433-9.961-2.698-13.932-3.908c-4.565-23.544-0.594-62.145,18.399-119.131C385.638,195.369,445.692,0,256,0
+		C66.308,0,130.55,194.222,138.784,232.641c10.199,47.592,25.193,96.734,19.014,118.425c-9.298,3.236-19.839,7.459-30.842,13.925
+		c-38.182-8.172-96.643,29.269-84.808,100.291c1.216,8.487,19.098,15.68,44.578,21.489c1.95,0.713,3.873,1.44,5.984,2.153
+		C128.257,500.948,186.808,511.979,256,512c57.958-0.007,106.877-7.529,141.794-16.973c8.752-2.37,16.609-4.858,23.55-7.396
+		c27.55-5.949,47.235-13.429,48.507-22.348C480.707,400.146,432.438,363.265,394.907,363.894z M358.899,443.808
+		c-5.369,0-52.792-16.63-102.899,3.055c-50.107-19.685-97.53-3.055-102.899-3.055c-4.271,0-8.507-46.451-14.589-67.22
+		c15.463-8.424,30.031-12.345,42.257-16.624c8.032-2.866,14.75-5.892,20.042-10.932c2.622-2.517,4.789-5.593,6.173-9.067
+		c1.391-3.474,2.013-7.263,2.006-11.212c0-8.354,0-18.798,0-33.107v-3.027l-2.02-2.243c-10.737-11.961-25.278-27.829-30.318-56.05
+		l-0.797-4.509l-4.306-1.538c-2.741-0.979-4.83-1.979-6.655-3.244c-2.691-1.901-5.131-4.494-7.984-9.814
+		c-2.816-5.284-5.802-13.177-9.066-24.634c-1.433-5.012-1.943-8.905-1.943-11.799c0.007-3.356,0.65-5.327,1.308-6.564
+		c0.992-1.804,2.209-2.572,3.761-3.194c1.062-0.405,2.188-0.559,2.831-0.615l7.626,1.622c2.845,4.53,4.201,8.92,4.201,8.92
+		s-5.369-16.106,8.948-37.58c13.953-20.929,73.812-2.796,111.63-56.559c36.958,43.599,37.79,14.946,51.219,35.084
+		c14.316,21.475,8.948,59.055,8.948,59.055s1.566-5.005,4.823-9.842l6.62-0.706c0.497-0.014,3.007,0.231,4.663,1.335
+		c0.902,0.573,1.636,1.244,2.307,2.482c0.657,1.238,1.3,3.202,1.314,6.564c0,2.894-0.518,6.781-1.944,11.799
+		c-4.341,15.295-8.235,24.187-11.807,29.122c-1.789,2.488-3.425,4.054-5.243,5.326c-1.824,1.266-3.914,2.265-6.654,3.244
+		l-4.306,1.538l-0.796,4.509c-5.04,28.22-19.581,44.089-30.318,56.05l-2.02,2.243v3.027c0,14.316,0,24.753,0,33.107
+		c-0.014,5.194,2.006,9.856,4.774,13.582c4.187,5.62,10.003,9.78,16.336,13.408c6.347,3.607,13.29,6.571,19.818,9.018
+		c7.801,2.894,17.742,5.173,28.611,8.346c0.616,0.182,1.245,0.378,1.86,0.559C367.826,392.583,363.38,443.808,358.899,443.808z"/>
+</g>
+</svg>`;
+
+	genderIcon.innerHTML = userGender === "female" ? femaleSVG : maleSVG;
+	</script>
+
 </html>
