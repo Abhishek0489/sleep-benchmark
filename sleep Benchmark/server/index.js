@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
+
+app.use(cors()); // You can refine this later for security
 //adding 1 new comment line
 const app = express();
 const axios = require('axios');
@@ -59,7 +62,8 @@ app.post('/submit-data', async (req, res) => {
 
 
     // 1. Node.js calls the Python API
-    const pythonApiResponse = await axios.post('http://localhost:5001/predict', formData);
+    // const pythonApiResponse = await axios.post('http://localhost:5001/predict', formData);
+    const pythonApiResponse = await axios.post(`${process.env.PYTHON_API_URL}/predict`, formData);
     const predictionResult = pythonApiResponse.data.sleep_disorder_prediction;
 
     // --- ⬇️ NEW: Prepare data and save to Supabase ---

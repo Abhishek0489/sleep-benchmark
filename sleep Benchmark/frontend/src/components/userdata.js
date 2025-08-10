@@ -46,7 +46,7 @@ if (form) {
       alert('Failed to save data: ' + error.message);
     } else {
       alert('Data submitted successfully!');
-      window.location.href = '/dashboard.html';
+      window.location.href = '/';
 
     }
   });
