@@ -181,7 +181,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold text-lg  mt-2">Quality Of Sleep</h3>
 								<small class="text-[#58595c] font-semibold ">Sleep depth and restfulness</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								<h1 id="quality-of-sleep-value" class="text-[1.6rem] text-amber-800">-/10</h1>
 							</div>
 						</div>					
 					</div>
@@ -194,7 +194,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Stress Level</h3>
 								<small class="text-[#58595c] font-semibold ">Indicates mental or emotional strain</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								<h1 id="stress-level-value" class="text-[1.6rem] text-amber-800">-/10</h1>
 							</div>						
 						</div>
 					</div>
@@ -207,7 +207,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Sleep Duration</h3>
 								<small class="text-[#58595c] font-semibold ">Total hours of sleep each night</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								<h1 id="sleep-duration-value" class="text-[1.6rem] text-amber-800">- hrs</h1>
 							</div>						
 						</div>						
 					</div>
@@ -221,7 +221,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold  text-lg mt-2">BMI</h3>
 								<small class="text-[#58595c] font-semibold "> Measures body fat using height and weight</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								 <h1 id="bmi-category-value" class="text-[1.6rem] text-amber-800">-</h1>
 							</div>						
 						</div>					
 					</div>
@@ -234,7 +234,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Blood Pressure</h3>
 								<small class="text-[#58595c] font-semibold ">Tracks blood pressure levels</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								<h1 id="blood-pressure-value" class="text-[1.6rem] text-amber-800">-/-</h1>
 							</div>						
 						</div>					
 					</div>
@@ -247,7 +247,7 @@
 							<div class="left">
 								<h3 class=" text-[#363949] font-bold  text-lg mt-2">Daily Steps</h3>
 								<small class="text-[#58595c] font-semibold ">Counts steps taken per day</small>	
-								<h1 class="text-[1.6rem] text-amber-800">7/10</h1>
+								<h1 id="daily-steps-value" class="text-[1.6rem] text-amber-800">-</h1>
 							</div>						
 						</div>						
 					</div>
@@ -264,7 +264,7 @@
 
 			<div class="right-side mt-4 ">
 				<!-- start Sleep_Disorder -->
-				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8">
+				<div  onclick="openDescription7()" id="disorder-card-Insomnia" class="Sleep_Disorder mt-8">
 					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
 						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
 						<div class="flex flex-col items-center gap-3">							
@@ -283,7 +283,7 @@
 
 				<!-- Sleep Apnea  -->
 
-				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8 hidden">
+				<div  onclick="openDescription7()" id="disorder-card-Sleep Apnea" class="Sleep_Disorder mt-8 hidden">
 					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
 						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
 						<div class="flex flex-col items-center gap-3">							
@@ -302,7 +302,7 @@
 
 				<!-- none -->
 
-				<div  onclick="openDescription7()" class="Sleep_Disorder mt-8 hidden">
+				<div  onclick="openDescription7()" id="disorder-card-None" class="Sleep_Disorder mt-8 hidden">
 					<div class="Sleep_Disorder mt-4  p-6 bg-gray-300 backdrop-blur-sm pt-4 rounded-[2rem] shadow-md shadow-black transition-all duration-300 ease-in-out hover:shadow-amber-950 hover:cursor-pointer hover:scale-105">						
 						<h1 class="text-[#363949] text-xl font-extrabold text-center mb-2">Sleep Disorder</h1>
 						<div class="flex flex-col items-center gap-3">							
@@ -364,7 +364,7 @@
 				<span class="material-symbols-sharp bg-[var(--clr-coral)] p-2 rounded-full text-[var(--clr-white)] text-[2rem] ">sleep_score</span>
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Quality Of Sleep</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Quality of sleep refers to how well you sleep, not just how long. It includes falling asleep easily, staying asleep through the night, and feeling refreshed upon waking. Good sleep quality supports mental focus, emotional balance, and physical health. Poor quality sleep, even if long, can lead to fatigue, irritability, and health issues.</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="quality-of-sleep-value" class="text-[1.6rem] text-amber-800">-/10</h1>			
 			</div>
     	</div>
 
@@ -379,7 +379,7 @@
 				<span class="material-symbols-sharp bg-[var(--clr-danger)] p-2 rounded-full text-[var(--clr-white)] text-[2rem]">sentiment_stressed</span>
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Stress Level</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Stress level refers to the amount of mental or emotional strain a person is experiencing. It can be influenced by daily responsibilities, work pressure, personal challenges, or health issues. While a small amount of stress can be motivating, high or prolonged stress can affect sleep, concentration, mood, and overall well-being. Managing stress through relaxation, exercise, and healthy habits is important for maintaining balance and good health.</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="stress-level-value" class="text-[1.6rem] text-amber-800">-/10</h1>
 			</div>
     	</div>
 
@@ -395,7 +395,7 @@
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Sleep Duration</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Sleep duration refers to the total amount of time a person spends sleeping each night. It plays a vital role in physical recovery, brain function, and emotional stability. While individual needs vary, most adults require 7 to 9 hours of sleep for optimal health. Too little or too much sleep can lead to fatigue, poor concentration, and increased risk of health problems. Maintaining a consistent sleep schedule helps improve both sleep duration and overall well-being.</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="sleep-duration-value" class="text-[1.6rem] text-amber-800">- hrs</h1>			
 			</div>
     	</div>
 
@@ -411,7 +411,7 @@
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">BMI</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">BMI (Body Mass Index) is a numerical value calculated from a person’s height and weight. It is commonly used as a simple screening tool to categorize individuals into weight groups such as underweight, normal weight, overweight, or obese. While BMI gives a general indication of body fat, it does not measure fat directly or account for muscle mass, bone density, or distribution of fat. Despite its limitations, it remains a useful starting point for assessing health risks related to weight.</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="bmi-category-value" class="text-[1.6rem] text-amber-800">-</h1>			
 			</div>
     	</div>
 
@@ -427,7 +427,7 @@
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Blood Pressure</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Blood pressure is the force of blood pushing against the walls of the arteries as the heart pumps. It is measured using two numbers: systolic (when the heart beats) over diastolic (when the heart rests between beats). A normal blood pressure is typically around 120/80 mmHg. Consistently high blood pressure, or hypertension, can lead to serious health problems like heart disease, stroke, and kidney damage. Monitoring and maintaining healthy blood pressure through diet, exercise, and stress management is essential for overall cardiovascular health.</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="blood-pressure-value" class="text-[1.6rem] text-amber-800">-/-</h1>			
 			</div>
     	</div>
 
@@ -443,7 +443,7 @@
 
 				<h3 class=" text-[var(--clr-dark)] text-lg mt-2">Daily Steps</h3>	
 				<p class="text-[var(--clr-info-dark)] text-sm mt-2 leading-relaxed pb-2">Daily steps count how much you walk in a day. Taking around 8,000–10,000 steps daily boosts heart health, improves mood, helps manage weight, and lowers disease risk. Even small increases make a big difference..</p>
-				<h1 class="text-[1.6rem] text-green-400">7/10</h1>			
+				<h1 id="daily-steps-value" class="text-[1.6rem] text-amber-800">-</h1>			
 			</div>
     	</div>
 
@@ -482,8 +482,8 @@
 		</div>
     </div>
 	    <% } %>
-		<script type="module" crossorigin href="/assets/auth-Cng7g0q9.js"></script>
-		<script type="module" crossorigin src="/assets/dashboard-emF0lnUE.js"></script>
+		<script type="module" crossorigin href="/assets/auth-DrJici0X.js"></script>
+		<script type="module" crossorigin src="/assets/dashboard-B80PzfBZ.js"></script>
   </body>
 
 
@@ -569,7 +569,7 @@
 	</script>
 		<script>
 	// Example: simulate data from form or API
-	const userName = "Deepraj";
+	//const userName = "Deepraj";
 	const userGender = "male"; // or "female"
 
 	document.getElementById("user-name").innerText = userName;

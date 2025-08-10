@@ -10,6 +10,12 @@ const PORT = process.env.PORT || 5000;
 const session = require('express-session');
 const md = require('markdown-it')();
 
+const { createClient } = require('@supabase/supabase-js');
+const supabaseAdmin = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
+);
+
 //seve dynamic directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -38,25 +44,70 @@ app.post('/submit-data', async (req, res) => {
   console.log('Initial form data received:', formData);
 
   try {
+    // --- ⬇️ NEW: Authenticate the user ---
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication token not provided.' });
+    }
+
+    const { data: { user }, error: userError } = await supabaseAdmin.auth.getUser(token);
+    if (userError || !user) {
+      return res.status(401).json({ message: 'Invalid authentication token.' });
+    }
+    console.log('Request authenticated for user:', user.id);
+    // --- ⬆️ END: User Authentication ---
+
+
     // 1. Node.js calls the Python API
     const pythonApiResponse = await axios.post('http://localhost:5001/predict', formData);
     const predictionResult = pythonApiResponse.data.sleep_disorder_prediction;
 
-    req.session.formData = {
-      ...formData, // Copies all original form fields
-      recentPrediction: predictionResult // Adds the new prediction
+    // --- ⬇️ NEW: Prepare data and save to Supabase ---
+    // Map form data keys to your database column names
+    const predictionRecord = {
+      user_id: user.id, // The authenticated user's ID
+      age: formData['Age'],
+      gender: formData['Gender'],
+      occupation: formData['Occupation'],
+      sleep_duration: formData['Sleep Duration'],
+      quality_of_sleep: formData['Quality of Sleep'],
+      physical_activity_level: formData['Physical Activity Level'],
+      stress_level: formData['Stress Level'],
+      heart_rate: formData['Heart Rate'],
+      daily_steps: formData['Daily Steps'],
+      systolic_bp: formData['Systolic'],
+      diastolic_bp: formData['Diastolic'],
+      bmi_category: formData['BMI Category'],
+      sleep_disorder_prediction: predictionResult // The result from your Python model
     };
 
+    const { error: insertError } = await supabaseAdmin
+      .from('predictions')
+      .insert(predictionRecord);
 
-    // 2. Redirect to the dashboard with the result as a query parameter
+    if (insertError) {
+      console.error('Supabase Insert Error:', insertError.message);
+      throw new Error('Failed to save prediction to the database.');
+    }
+    console.log('Prediction saved to Supabase successfully.');
+    // --- ⬆️ END: Save to Supabase ---
+
+
+    // Store data in session for analytics page (optional, but you have it)
+    req.session.formData = {
+      ...formData,
+      recentPrediction: predictionResult
+    };
+
+    // Redirect to the dashboard
     res.redirect(`/dashboard?prediction=${encodeURIComponent(predictionResult)}`);
 
   } catch (error) {
-    console.error("Error calling Python API:", error.message);
-    // Redirect with an error message
-    res.redirect('/dashboard?error=Prediction-Failed');
+    console.error("Error in /submit-data route:", error.message);
+    res.status(500).redirect(`/dashboard?error=${encodeURIComponent(error.message)}`);
   }
 });
+
 
 
 
@@ -135,6 +186,43 @@ app.get('/analytics', async (req, res) => {
   }
 });
 
+app.get('/api/latest-prediction', async (req, res) => {
+  try {
+    // 1. Authenticate the user from the token sent by the frontend
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication token not provided.' });
+    }
+    const { data: { user }, error: userError } = await supabaseAdmin.auth.getUser(token);
+    if (userError || !user) {
+      return res.status(401).json({ message: 'Invalid authentication token.' });
+    }
+
+    // 2. Fetch the most recent prediction for that user
+    const { data, error: predictionError } = await supabaseAdmin
+      .from('predictions')
+      .select('*') // Get all columns
+      .eq('user_id', user.id) // For the logged-in user
+      .order('created_at', { ascending: false }) // Get the newest one first
+      .limit(1) // We only want one
+      .single(); // Expect only a single object back, not an array
+
+    if (predictionError) {
+      // It's not a server error if the user just has no data yet
+      if (predictionError.code === 'PGRST116') {
+        return res.status(404).json({ message: 'No prediction data found for this user.' });
+      }
+      throw predictionError; // Throw other, actual errors
+    }
+
+    // 3. Send the data back to the frontend
+    res.status(200).json(data);
+
+  } catch (error) {
+    console.error('Error fetching latest prediction:', error.message);
+    res.status(500).json({ message: 'Server error while fetching prediction data.' });
+  }
+});
 
 
 app.listen(PORT, () => {
