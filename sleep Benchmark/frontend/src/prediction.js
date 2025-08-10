@@ -1,7 +1,20 @@
 // frontend/src/prediction.js
 
+// ❗ Make sure to import the supabase client at the top
+import { supabase } from './context/supabaseClient.js';
+
 document.getElementById('prediction-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  // --- ⬇️ NEW: Get the user's session ---
+  const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+  if (sessionError || !session) {
+    alert('You must be logged in to submit a prediction.');
+    return;
+  }
+  // --- ⬆️ NEW: End of session check ---
+
   const form = e.target;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
@@ -14,10 +27,14 @@ document.getElementById('prediction-form').addEventListener('submit', async (e) 
   }
 
   try {
-    // Send data directly to the Node.js server on a new route
+    // Send data to the Node.js server
     const response = await fetch('/submit-data', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        // --- ⬇️ NEW: Add the Authorization header ---
+        'Authorization': `Bearer ${session.access_token}`,
+      },
       body: JSON.stringify(data),
     });
 
@@ -25,11 +42,12 @@ document.getElementById('prediction-form').addEventListener('submit', async (e) 
       // If the request is successful, redirect to the URL the server provides
       window.location.href = response.url;
     } else {
-      throw new Error('Data submission failed');
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Data submission failed');
     }
 
   } catch (error) {
     console.error('Error:', error);
-    alert('Failed to submit data. Please try again.');
+    alert('Failed to submit data: ' + error.message);
   }
 });
