@@ -26,9 +26,11 @@ document.getElementById('prediction-form').addEventListener('submit', async (e) 
     }
   }
 
+const NODE_SERVER_URL = 'https://sleep-web-server-node.onrender.com'; 
+  
   try {
     // Send data to the Node.js server
-    const response = await fetch('/submit-data', {
+    const response = await fetch(`${NODE_SERVER_URL}/submit-data`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -6,7 +6,9 @@ require('dotenv').config();
 
 //adding 1 new comment line
 const app = express();
-app.use(cors()); // You can refine this later for security
+app.use(cors({
+  origin: 'https://sleep-benchmark-7g1c.onrender.com' 
+}));
 const axios = require('axios');
 app.use(express.json());
 const PORT = process.env.PORT || 5000;
