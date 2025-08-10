@@ -1,12 +1,12 @@
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
+
 const path = require('path');
 require('dotenv').config();
 
-
-app.use(cors()); // You can refine this later for security
 //adding 1 new comment line
 const app = express();
+app.use(cors()); // You can refine this later for security
 const axios = require('axios');
 app.use(express.json());
 const PORT = process.env.PORT || 5000;
